@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product | Eeyo Collections</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="menu-toggle">&#9776;</div>
+      <h1 class="logo">EEYO</h1>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="new-arrivals.html">New Arrivals</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <a href="cart.html" class="cart-icon">🛒 <span id="cart-count">0</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="product-details">
+    <div class="product-gallery">
+      <div class="main-image">
+        <img id="mainProductImage" src="images/product1.jpg" alt="">
+      </div>
+      <div class="thumbnail-images" id="thumbnails"></div>
+    </div>
+
+    <div class="product-info">
+      <h2></h2>
+      <p class="price"></p>
+      <p class="description"></p>
+
+      <div class="sizes">
+        <h4>Size:</h4>
+        <button>S</button>
+        <button>M</button>
+        <button>L</button>
+        <button>XL</button>
+      </div>
+
+      <div class="quantity">
+        <h4>Quantity:</h4>
+        <div class="qty-box">
+          <button onclick="decreaseQty()">-</button>
+          <input id="qty" type="number" value="1" min="1">
+          <button onclick="increaseQty()">+</button>
+        </div>
+      </div>
+
+      <button class="btn add-to-cart" data-name="" data-price="" data-image="">Add to Cart</button>
+    </div>
+  </section>
+
+  <section class="featured">
+    <h2>Related Products</h2>
+    <div class="product-grid related-products"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>EEYO</h3>
+        <p>Modern fashion pieces designed for everyday confidence and style.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="new-arrivals.html">New Arrivals</a>
+        <a href="#">Best Sellers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">Contact</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Eeyo Collections</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

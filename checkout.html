@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout | Eeyo Collections</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="menu-toggle">&#9776;</div>
+      <h1 class="logo">EEYO</h1>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="new-arrivals.html">New Arrivals</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <a href="cart.html" class="cart-icon">
+🛒 <span id="cart-count">0</span>
+</a>
+
+      </div>
+    </nav>
+  </header>
+
+  <section class="checkout">
+    <h2>Checkout</h2>
+
+    <div class="checkout-container">
+      <form class="billing-form">
+        <h3>Billing Details</h3>
+
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="Phone Number" required>
+        <input type="text" placeholder="Address" required>
+        <input type="text" placeholder="City" required>
+
+        <select required>
+          <option value="">Select State</option>
+          <option>Lagos</option>
+          <option>Abuja</option>
+          <option>Oyo</option>
+          <option>Osun</option>
+        </select>
+      </form>
+
+      <div class="order-summary">
+        <h3>Your Order</h3>
+
+        <p>Oversized T-Shirt <span>&#8358;12,000</span></p>
+        <p>Delivery <span>&#8358;2,000</span></p>
+
+        <hr>
+
+        <h4>Total <span>&#8358;14,000</span></h4>
+        <button class="btn" type="button">Place Order</button>
+      </div>
+    </div>
+  </section>
+
+  <<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>EEYO</h3>
+      <p>Modern fashion pieces designed for everyday confidence and style.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="shop.html">All Products</a>
+      <a href="new-arrivals.html">New Arrivals</a>
+      <a href="#">Best Sellers</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="#">Contact</a>
+      <a href="#">Shipping</a>
+      <a href="#">Returns</a>
+    </div>
+
+  </div>
+
+  <p class="copyright">© 2026 Eeyo Collections</p>
+</footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
