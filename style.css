@@ -9,7 +9,6 @@ html, body {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
 }
-
 body {
   background: #fff;
   color: #111;
@@ -34,9 +33,9 @@ header.scrolled {
   border-bottom: 1px solid #eee;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
+.logo-image {
+  height: 80px;
+  width: auto;
 }
 
 .nav-links {
