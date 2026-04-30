@@ -5,13 +5,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Product | Eeyo Collections</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .product-details {
+      align-items: start;
+    }
+
+    .product-gallery {
+      position: sticky;
+      top: 120px;
+    }
+
+    .main-image {
+      overflow: hidden;
+      border-radius: 8px;
+      background: #f7f7f7;
+    }
+
+    .main-image img {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .product-info {
+      max-width: 560px;
+    }
+
+    .product-info h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .product-info .description {
+      color: #555;
+      font-size: 17px;
+    }
+
+    .product-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 18px 0 26px;
+    }
+
+    .product-meta span {
+      border: 1px solid #e3ded8;
+      border-radius: 999px;
+      color: #5e554c;
+      font-size: 13px;
+      padding: 8px 12px;
+    }
+
+    .sizes,
+    .quantity {
+      margin-top: 24px;
+    }
+
+    .sizes h4,
+    .quantity h4 {
+      margin-bottom: 10px;
+    }
+
+    .sizes button.active {
+      background: #111;
+      color: #fff;
+    }
+
+    .add-to-cart {
+      border: 0;
+      margin-top: 28px;
+      cursor: pointer;
+      width: min(100%, 320px);
+    }
+
+    .thumbnail-images:empty {
+      display: none;
+    }
+
+    .product-not-found {
+      padding: 80px 8%;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .product-gallery {
+        position: static;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <header class="header">
     <nav class="navbar">
-      <div class="menu-toggle">&#9776;</div>
-      <img src="images/logo.png" alt="CrownWear Logo" class="logo-image" />
+      <div class="menu-toggle" aria-label="Open navigation">&#9776;</div>
+      <img src="images/logo.png" alt="Eeyo Collections logo" class="logo-image" />
 
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -21,54 +109,61 @@
       </ul>
 
       <div class="nav-icons">
-        <a href="cart.html" class="cart-icon">🛒 <span id="cart-count">0</span></a>
+        <a href="cart.html" class="cart-icon" aria-label="View cart">&#128722; <span id="cart-count">0</span></a>
       </div>
     </nav>
   </header>
 
-  <section class="product-details">
-    <div class="product-gallery">
-      <div class="main-image">
-        <img id="mainProductImage" src="images/product1.jpg" alt="">
-      </div>
-      <div class="thumbnail-images" id="thumbnails"></div>
-    </div>
-
-    <div class="product-info">
-      <h2></h2>
-      <p class="price"></p>
-      <p class="description"></p>
-
-      <div class="sizes">
-        <h4>Size:</h4>
-        <button>S</button>
-        <button>M</button>
-        <button>L</button>
-        <button>XL</button>
-      </div>
-
-      <div class="quantity">
-        <h4>Quantity:</h4>
-        <div class="qty-box">
-          <button onclick="decreaseQty()">-</button>
-          <input id="qty" type="number" value="1" min="1">
-          <button onclick="increaseQty()">+</button>
+  <main>
+    <section class="product-details" id="product-details">
+      <div class="product-gallery">
+        <div class="main-image">
+          <img id="mainProductImage" src="images/t-shirt7.jpeg" alt="Selected product">
         </div>
+        <div class="thumbnail-images" id="thumbnails"></div>
       </div>
 
-      <button class="btn add-to-cart" data-name="" data-price="" data-image="">Add to Cart</button>
-    </div>
-  </section>
+      <div class="product-info">
+        <h2></h2>
+        <p class="price"></p>
+        <p class="description"></p>
+        <div class="product-meta">
+          <span>Premium everyday wear</span>
+          <span>Ships from Lagos</span>
+          <span>Easy size exchange</span>
+        </div>
 
-  <section class="featured">
-    <h2>Related Products</h2>
-    <div class="product-grid related-products"></div>
-  </section>
+        <div class="sizes">
+          <h4>Size:</h4>
+          <button type="button">S</button>
+          <button type="button" class="active">M</button>
+          <button type="button">L</button>
+          <button type="button">XL</button>
+        </div>
+
+        <div class="quantity">
+          <h4>Quantity:</h4>
+          <div class="qty-box">
+            <button type="button" onclick="decreaseQty()" aria-label="Decrease quantity">-</button>
+            <input id="qty" type="number" value="1" min="1">
+            <button type="button" onclick="increaseQty()" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+
+        <button type="button" class="btn add-to-cart" data-name="" data-price="" data-image="">Add to Cart</button>
+      </div>
+    </section>
+
+    <section class="featured">
+      <h2>Related Products</h2>
+      <div class="product-grid related-products"></div>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-col">
-        <h3>CrownWear</h3>
+        <h3>EEYO</h3>
         <p>Modern fashion pieces designed for everyday confidence and style.</p>
       </div>
       <div class="footer-col">
@@ -84,10 +179,17 @@
         <a href="#">Returns</a>
       </div>
     </div>
-    <p class="copyright">© 2026 CrownWear Collections</p>
+    <p class="copyright">&copy; 2026 Eeyo Collections</p>
   </footer>
 
   <script src="script.js"></script>
-
+  <script>
+    document.querySelectorAll(".sizes button").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".sizes button").forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+      });
+    });
+  </script>
 </body>
 </html>
