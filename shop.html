@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shop | CrownWear Collections</title>
+  <title>Shop | CrownWears Collections</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <header class="header">
     <nav class="navbar">
-      <div class="menu-toggle">&#9776;</div>
-      <img src="images/logo.png" alt="CrownWear Logo" class="logo-image" />
+      <div class="menu-toggle" aria-label="Open navigation">&#9776;</div>
+      <img src="images/logo.png" alt="Eeyo Collections logo" class="logo-image" />
 
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -21,32 +21,64 @@
       </ul>
 
       <div class="nav-icons">
-        <a href="cart.html" class="cart-icon">🛒 <span id="cart-count">0</span></a>
+        <a href="cart.html" class="cart-icon" aria-label="View cart">&#128722; <span id="cart-count">0</span></a>
       </div>
     </nav>
   </header>
 
-  <section class="shop-header">
-    <h2>Shop</h2>
-    <p>Home / Shop</p>
-  </section>
+  <main>
+    <section class="shop-hero">
+      <div class="shop-hero-copy reveal" data-delay="80">
+        <p class="eyebrow">CrownWears Collections</p>
+        <h1>Shop the full drop</h1>
+        <p>Browse easy everyday pieces, clean streetwear staples, and comfortable fits made for repeat wear.</p>
+      </div>
 
-  <section class="filters">
-    <button>All</button>
-    <button>Men</button>
-    <button>Women</button>
-    <button>Hoodies</button>
-    <button>T-Shirts</button>
-  </section>
+      <div class="shop-hero-media reveal" data-delay="160" aria-hidden="true">
+        <img src="images/hoodie7.jpeg" alt="">
+        <img src="images/t-shirt3.jpeg" alt="">
+      </div>
+    </section>
 
-  <section class="featured">
-    <div class="product-grid" id="product-grid"></div>
-  </section>
+    <section class="shop-toolbar" aria-label="Shop controls">
+      <div class="shop-search">
+        <label for="shop-search">Search products</label>
+        <input type="search" id="shop-search" placeholder="Search hoodies, polos, shorts..." autocomplete="off">
+      </div>
+
+      <div class="shop-sort">
+        <label for="sort-products">Sort by</label>
+        <select id="sort-products">
+          <option value="featured">Featured</option>
+          <option value="price-low">Price: low to high</option>
+          <option value="price-high">Price: high to low</option>
+          <option value="name">Name</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="filters" aria-label="Product categories">
+      <button type="button" class="active" data-filter="all">All</button>
+      <button type="button" data-filter="tshirt">T-Shirts</button>
+      <button type="button" data-filter="hoodie">Hoodies</button>
+      <button type="button" data-filter="polo">Polos</button>
+      <button type="button" data-filter="shorts">Shorts</button>
+    </section>
+
+    <section class="shop-results">
+      <div class="shop-meta">
+        <p id="result-count">Showing all products</p>
+        <p>Free Lagos delivery on orders above &#8358;50,000</p>
+      </div>
+
+      <div class="product-grid" id="product-grid"></div>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-col">
-        <h3>CrownWear</h3>
+        <h3>EEYO</h3>
         <p>Modern fashion pieces designed for everyday confidence and style.</p>
       </div>
       <div class="footer-col">
@@ -62,25 +94,102 @@
         <a href="#">Returns</a>
       </div>
     </div>
-    <p class="copyright">© 2026 CrownWear Collections</p>
+    <p class="copyright">&copy; 2026 Eeyo Collections</p>
   </footer>
 
   <script src="script.js"></script>
   <script>
-    // Render shop products dynamically
     const productGrid = document.getElementById("product-grid");
+    const filterButtons = document.querySelectorAll(".filters button");
+    const searchInput = document.getElementById("shop-search");
+    const sortSelect = document.getElementById("sort-products");
+    const resultCount = document.getElementById("result-count");
 
-    products.forEach(p => {
-      const a = document.createElement("a");
-      a.href = `product.html?id=${p.id}`;
-      a.className = "product-card";
-      a.innerHTML = `
-        <img src="${p.image}" alt="${p.name}">
-        <h3>${p.name}</h3>
-        <p>₦${p.price}</p>
-      `;
-      productGrid.appendChild(a);
+    let activeFilter = "all";
+
+    const categoryLabels = {
+      tshirt: "T-Shirt",
+      hoodie: "Hoodie",
+      polo: "Polo",
+      shorts: "Shorts"
+    };
+
+    const formatPrice = (price) => `&#8358;${Number(price).toLocaleString()}`;
+
+    function getVisibleProducts() {
+      const query = searchInput.value.trim().toLowerCase();
+      const sortBy = sortSelect.value;
+
+      const visibleProducts = products.filter((product) => {
+        const matchesFilter = activeFilter === "all" || product.category === activeFilter;
+        const matchesSearch = !query ||
+          product.name.toLowerCase().includes(query) ||
+          product.description.toLowerCase().includes(query) ||
+          product.category.toLowerCase().includes(query);
+
+        return matchesFilter && matchesSearch;
+      });
+
+      return visibleProducts.sort((a, b) => {
+        if (sortBy === "price-low") return a.price - b.price;
+        if (sortBy === "price-high") return b.price - a.price;
+        if (sortBy === "name") return a.name.localeCompare(b.name);
+        return a.id - b.id;
+      });
+    }
+
+    function renderProducts() {
+      const visibleProducts = getVisibleProducts();
+      productGrid.innerHTML = "";
+
+      resultCount.textContent = visibleProducts.length === products.length
+        ? `Showing all ${products.length} products`
+        : `Showing ${visibleProducts.length} of ${products.length} products`;
+
+      if (!visibleProducts.length) {
+        productGrid.innerHTML = `
+          <div class="empty-state">
+            <h3>No products found</h3>
+            <p>Try a different search or category.</p>
+          </div>
+        `;
+        return;
+      }
+
+      visibleProducts.forEach((product, index) => {
+        const card = document.createElement("a");
+        card.href = `product.html?id=${product.id}`;
+        card.className = "product-card reveal";
+        card.dataset.delay = String(Math.min(index * 45, 360));
+        card.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <div class="product-card-body">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <div class="product-row">
+              <span class="product-price">${formatPrice(product.price)}</span>
+              <span class="product-chip">${categoryLabels[product.category] || product.category}</span>
+            </div>
+          </div>
+        `;
+        productGrid.appendChild(card);
+        requestAnimationFrame(() => card.classList.add("in-view"));
+      });
+    }
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        activeFilter = button.dataset.filter;
+        renderProducts();
+      });
     });
+
+    searchInput.addEventListener("input", renderProducts);
+    sortSelect.addEventListener("change", renderProducts);
+
+    renderProducts();
   </script>
 </body>
 </html>
