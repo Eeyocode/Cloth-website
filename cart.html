@@ -1,80 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cart | CrownWear Collections</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart | CrownWears Collections</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <div class="menu-toggle">&#9776;</div>
-      <img src="images/logo.png" alt="CrownWear Logo" class="logo-image" />
+  <div id="site-header"></div>
 
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="new-arrivals.html">New Arrivals</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
+  <main>
+    <h1 class="page-title">Your cart</h1>
 
-      <div class="nav-icons">
-        <a href="cart.html">&#128722;</a>
-      </div>
-    </nav>
-  </header>
+    <div class="cart-layout">
+      <div id="cart-items"></div>
 
-  <section class="cart">
-    <h2>Your Cart</h2>
-
-    <div class="cart-container">
-      <div class="cart-items">
-
-      </div>
-
-      <div class="cart-total">
-        <h3>Cart Total</h3>
-
-        <p>Subtotal: <span>&#8358;12,000</span></p>
-        <p>Delivery: <span>&#8358;2,000</span></p>
-        <hr>
-        <h4>Total: <span>&#8358;14,000</span></h4>
-
-        <a href="checkout.html" class="btn">Proceed to Checkout</a>
-      </div>
+      <aside class="summary-card hidden" id="cart-summary" aria-label="Cart total">
+        <h3>Cart total</h3>
+        <div class="summary-row"><span>Subtotal</span><span data-total="subtotal"></span></div>
+        <div class="summary-row"><span>Delivery</span><span data-total="delivery"></span></div>
+        <p class="free-note" id="free-note"></p>
+        <div class="free-bar" id="free-bar"><span></span></div>
+        <div class="summary-row total"><span>Total</span><span data-total="total"></span></div>
+        <a href="checkout.html" class="btn btn-primary btn-block">Proceed to checkout</a>
+        <a href="shop.html" class="btn btn-block">Continue shopping</a>
+      </aside>
     </div>
-  </section>
+  </main>
 
-  <footer class="footer">
-  <div class="footer-container">
-
-    <div class="footer-col">
-      <h3>CrownWear</h3>
-      <p>Modern fashion pieces designed for everyday confidence and style.</p>
-    </div>
-
-    <div class="footer-col">
-      <h4>Shop</h4>
-      <a href="shop.html">All Products</a>
-      <a href="new-arrivals.html">New Arrivals</a>
-      <a href="#">Best Sellers</a>
-    </div>
-
-    <div class="footer-col">
-      <h4>Support</h4>
-      <a href="#">Contact</a>
-      <a href="#">Shipping</a>
-      <a href="#">Returns</a>
-    </div>
-
-  </div>
-
-  <p class="copyright">© 2026 CrownWear Collections</p>
-</footer>
-
-
+  <div id="site-footer"></div>
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,136 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Eeyo Collections</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eeyo Collections | Modern everyday fashion</title>
+  <meta name="description" content="Modern fashion pieces designed for everyday confidence and style. Shop hoodies, tees, polos and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <div class="menu-toggle">&#9776;</div>
-      <img src="images/logo.png" alt="CrownWear Logo" class="logo-image" />
+  <div id="site-header"></div>
 
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="new-arrivals.html">New Arrivals</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-
-      <div class="nav-icons">
-        <a href="cart.html" class="cart-icon">
-🛒 <span id="cart-count">0</span>
-</a>
-
-      </div>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-text reveal" data-delay="220">
-      <h2>New Season Collection</h2>
-      <p>Discover your style with our latest fashion drops.</p>
-      <a href="shop.html" class="btn"><span>Shop Now</span></a>
-    </div>
-
-    <div class="hero-slider reveal" data-delay="120">
-      <div class="slide-track">
-        <img src="images/hero1-removebg-preview.png" alt="Model in season collection">
-        <img src="images/hoodie1-removebg-preview.png" alt="Hoodie item">
-        <img src="images/summer_short1-removebg-preview.png" alt="Summer shorts item">
-        <img src="images/hoodie5-removebg-preview.png" alt="Polo shirt item">
-
-        <img src="images/hero1-removebg-preview.png" alt="Model in season collection">
-        <img src="images/hoodie1-removebg-preview.png" alt="Hoodie item">
-        <img src="images/summer_short1-removebg-preview.png" alt="Summer shorts item">
-        <img src="images/polo3-removebg-preview.png" alt="Polo shirt item">
-      </div>
-    </div>
-  </section>
-
-  <section class="featured reveal" data-delay="0">
-    <h2 class="reveal" data-delay="80">Featured Products</h2>
-
-    <div class="product-grid">
-      <div class="product-card reveal" data-delay="120">
-        <img src="images/t-shirt3.jpeg" alt="Oversized T-Shirt">
-        <h3>Oversized T-Shirt</h3>
-        <p>&#8358;12,000</p>
+  <main>
+    <section class="hero">
+      <div class="hero-text reveal">
+        <p class="eyebrow">New season collection</p>
+        <h1>Everyday pieces, worn with <em>confidence.</em></h1>
+        <p class="lead">Discover your style with our latest fashion drops. Clean fits, soft fabrics, made for repeat wear.</p>
+        <div class="hero-actions">
+          <a href="shop.html" class="btn btn-primary">Shop now</a>
+          <a href="new-arrivals.html" class="btn">New arrivals</a>
+        </div>
       </div>
 
-      <div class="product-card reveal" data-delay="220">
-        <img src="images/hoodie6.jpeg" alt="Luxury Hoodie">
-        <h3>Luxury Hoodie</h3>
-        <p>&#8358;18,000</p>
+      <div class="hero-slider reveal" style="--reveal-delay:150ms" aria-hidden="true">
+        <div class="slide-track">
+          <!-- Set 1 -->
+          <img src="images/hero1-removebg-preview.png" alt="">
+          <img src="images/hoodie1-removebg-preview.png" alt="">
+          <img src="images/summer_short1-removebg-preview.png" alt="">
+          <img src="images/hoodie5-removebg-preview.png" alt="">
+          <!-- Set 2 (identical, so the loop is seamless) -->
+          <img src="images/hero1-removebg-preview.png" alt="">
+          <img src="images/hoodie1-removebg-preview.png" alt="">
+          <img src="images/summer_short1-removebg-preview.png" alt="">
+          <img src="images/hoodie5-removebg-preview.png" alt="">
+        </div>
       </div>
+    </section>
 
-      <div class="product-card reveal" data-delay="320">
-        <img src="images/polo2.jpeg" alt="Classic Polo">
-        <h3>Classic Polo</h3>
-        <p>&#8358;10,000</p>
+    <div class="strip">
+      <span>Free Lagos delivery over &#8358;50,000</span>
+      <span>Easy size exchange</span>
+      <span>Ships from Lagos</span>
+    </div>
+
+    <section class="section">
+      <div class="section-head reveal">
+        <h2>Featured products</h2>
+        <a href="shop.html" class="text-link">View all</a>
       </div>
-    </div>
-  </section>
+      <div class="grid" id="featured-grid"></div>
+    </section>
 
-  <section class="categories reveal" data-delay="0">
-    <div class="category-card reveal" data-delay="80">
-      <h3>Men</h3>
-    </div>
+    <section class="section" style="padding-top:0">
+      <div class="section-head reveal">
+        <h2>Shop by category</h2>
+      </div>
+      <div class="cat-grid">
+        <a href="shop.html?cat=tshirt" class="cat-tile reveal"><span>T-Shirts</span><span aria-hidden="true">&rarr;</span></a>
+        <a href="shop.html?cat=hoodie" class="cat-tile reveal" style="--reveal-delay:80ms"><span>Hoodies</span><span aria-hidden="true">&rarr;</span></a>
+        <a href="shop.html?cat=polo" class="cat-tile reveal" style="--reveal-delay:160ms"><span>Polos</span><span aria-hidden="true">&rarr;</span></a>
+        <a href="shop.html?cat=shorts" class="cat-tile reveal" style="--reveal-delay:240ms"><span>Shorts</span><span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
 
-    <div class="category-card reveal" data-delay="180">
-      <h3>Women</h3>
-    </div>
+    <section class="promo reveal">
+      <h2>Up to 40% off</h2>
+      <p>On selected items</p>
+      <a href="shop.html" class="btn btn-light">Shop sale</a>
+    </section>
 
-    <div class="category-card reveal" data-delay="280">
-      <h3>Accessories</h3>
-    </div>
-  </section>
+    <section class="newsletter reveal">
+      <h2>Subscribe to our newsletter</h2>
+      <form id="newsletter-form">
+        <input type="email" placeholder="Enter your email" aria-label="Email address" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </section>
+  </main>
 
-  <section class="promo reveal" data-delay="0">
-    <h2 class="reveal" data-delay="80">Up to 40% Off</h2>
-    <p class="reveal" data-delay="160">On selected items</p>
-    <a href="shop.html" class="btn reveal" data-delay="240">Shop Sale</a>
-  </section>
-
-  <section class="newsletter reveal" data-delay="0">
-    <h2 class="reveal" data-delay="80">Subscribe to our newsletter</h2>
-    <form>
-      <input class="reveal" data-delay="160" type="email" placeholder="Enter your email">
-      <button class="reveal" data-delay="240" type="submit">Subscribe</button>
-    </form>
-  </section>
-
-  <footer class="footer">
-  <div class="footer-container">
-
-    <div class="footer-col">
-      <h3>EEYO</h3>
-      <p>Modern fashion pieces designed for everyday confidence and style.</p>
-    </div>
-
-    <div class="footer-col">
-      <h4>Shop</h4>
-      <a href="shop.html">All Products</a>
-      <a href="new-arrivals.html">New Arrivals</a>
-      <a href="#">Best Sellers</a>
-    </div>
-
-    <div class="footer-col">
-      <h4>Support</h4>
-      <a href="#">Contact</a>
-      <a href="#">Shipping</a>
-      <a href="#">Returns</a>
-    </div>
-
-  </div>
-
-  <p class="copyright">© 2026 CrownWear Collections</p>
-</footer>
-
-
+  <div id="site-footer"></div>
   <script src="script.js"></script>
 </body>
 </html>

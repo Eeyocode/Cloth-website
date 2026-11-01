@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Eeyo Collections</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero compact">
+      <div>
+        <p class="eyebrow">Support</p>
+        <h1>Get in touch</h1>
+        <p>Questions about an order, sizing or delivery? Send us a message.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <form class="form-card" id="contact-form" style="max-width:720px;margin:0 auto">
+        <h3>Send a message</h3>
+        <div class="form-grid">
+          <div>
+            <label for="c-name">Name</label>
+            <input id="c-name" type="text" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="c-email">Email</label>
+            <input id="c-email" type="email" autocomplete="email" required>
+          </div>
+          <div class="full">
+            <label for="c-message">Message</label>
+            <textarea id="c-message" required></textarea>
+          </div>
+          <div class="full">
+            <button type="submit" class="btn btn-primary">Send message</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section class="info-blocks">
+      <div class="info-block" id="shipping">
+        <h3>Shipping</h3>
+        <p>Orders ship from Lagos. Delivery is free on orders above &#8358;50,000, otherwise a flat &#8358;2,000 applies.</p>
+      </div>
+      <div class="info-block" id="returns">
+        <h3>Returns &amp; exchanges</h3>
+        <p>Not the right fit? We offer easy size exchanges. Message us with your order reference to get started.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="script.js"></script>
+</body>
+</html>

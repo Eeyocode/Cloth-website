@@ -1,245 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>New Arrivals | CrownWear Collections</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Arrivals | Eeyo Collections</title>
+  <meta name="description" content="The latest pieces from Eeyo Collections.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <div class="menu-toggle">&#9776;</div>
-      <img src="images/logo.png" alt="CrownWear Logo" class="logo-image" />
+  <div id="site-header"></div>
 
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="new-arrivals.html" class="active">New Arrivals</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-
-      <div class="nav-icons">
-        <a href="cart.html" class="cart-icon">
-🛒 <span id="cart-count">0</span>
-</a>
-
+  <main>
+    <section class="page-hero">
+      <div class="reveal">
+        <p class="eyebrow">Just landed</p>
+        <h1>New arrivals</h1>
+        <p>Fresh drops from the latest collection. Be the first to wear them.</p>
       </div>
-    </nav>
-  </header>
+      <div class="page-hero-media reveal" style="--reveal-delay:120ms" aria-hidden="true">
+        <img src="images/hoodie6.jpeg" alt="">
+        <img src="images/jacket2.jpeg" alt="">
+      </div>
+    </section>
 
-  <section class="shop-header">
-    <h2>New Arrivals</h2>
-    <p>Home / New Arrivals</p>
-  </section>
+    <section class="section">
+      <div class="grid" id="arrivals-grid"></div>
+    </section>
+  </main>
 
-  <section class="featured">
-    <div class="product-grid">
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/summer short4.jpeg" class="main-img" alt="Summer Dress">
-          <img src="images/summer short4.jpeg" class="hover-img" alt="Summer Dress alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Summer Dress</h3>
-        <p>&#8358;15,000</p>
-      </a>
-
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/jacket2.jpeg" class="main-img" alt="Casual Jacket">
-          <img src="images/jacket2.jpeg" class="hover-img" alt="Casual Jacket alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Casual Jacket</h3>
-        <p>&#8358;22,000</p>
-      </a>
-
-
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/hoodie6.jpeg" class="main-img" alt="Graphic Hoodie">
-          <img src="images/hoodie6.jpeg" class="hover-img" alt="Graphic Hoodie alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Graphic Hoodie</h3>
-        <p>&#8358;18,000</p>
-
-      </a>
-
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/polo3-removebg-preview.png" class="main-img" alt="Polo Shirt">
-          <img src="images/polo3-removebg-preview.png" class="hover-img" alt="Polo Shirt alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Polo Shirt</h3>
-        <p>&#8358;12,000</p>
-      </a>
-
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/hoodie5-removebg-preview.png" class="main-img" alt="Hoodie">
-          <img src="images/hoodie5-removebg-preview.png" class="hover-img" alt="Hoodie alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Hoodie</h3>
-        <p>&#8358;18,000</p>
-      </a>
-
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/hoodie5-removebg-preview.png" class="main-img" alt="Hoodie">
-          <img src="images/hoodie5-removebg-preview.png" class="hover-img" alt="Hoodie alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Hoodie</h3>
-        <p>&#8358;18,000</p>
-      </a>
-
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/hoodie5-removebg-preview.png" class="main-img" alt="Hoodie">
-          <img src="images/hoodie5-removebg-preview.png" class="hover-img" alt="Hoodie alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Hoodie</h3>
-        <p>&#8358;18,000</p>
-      </a>
-
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/hoodie5-removebg-preview.png" class="main-img" alt="Hoodie">
-          <img src="images/hoodie5-removebg-preview.png" class="hover-img" alt="Hoodie alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Hoodie</h3>
-        <p>&#8358;18,000</p>
-      </a>
-
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/hoodie5-removebg-preview.png" class="main-img" alt="Hoodie">
-          <img src="images/hoodie5-removebg-preview.png" class="hover-img" alt="Hoodie alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Hoodie</h3>
-        <p>&#8358;18,000</p>
-      </a>
-
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/hoodie5-removebg-preview.png" class="main-img" alt="Hoodie">
-          <img src="images/hoodie5-removebg-preview.png" class="hover-img" alt="Hoodie alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Hoodie</h3>
-        <p>&#8358;18,000</p>
-      </a>
-
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/hoodie5-removebg-preview.png" class="main-img" alt="Hoodie">
-          <img src="images/hoodie5-removebg-preview.png" class="hover-img" alt="Hoodie alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Hoodie</h3>
-        <p>&#8358;18,000</p>
-      </a>
-
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/hoodie5-removebg-preview.png" class="main-img" alt="Hoodie">
-          <img src="images/hoodie5-removebg-preview.png" class="hover-img" alt="Hoodie alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Hoodie</h3>
-        <p>&#8358;18,000</p>
-      </a>
-
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/hoodie5-removebg-preview.png" class="main-img" alt="Hoodie">
-          <img src="images/hoodie5-removebg-preview.png" class="hover-img" alt="Hoodie alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Hoodie</h3>
-        <p>&#8358;18,000</p>
-      </a>
-
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/summer_short1-removebg-preview.png" class="main-img" alt="Summer Shorts">
-          <img src="images/summer_short1-removebg-preview.png" class="hover-img" alt="Summer Shorts alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Summer Shorts</h3>
-        <p>&#8358;10,000</p>
-      </a>
-
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/summer_short1-removebg-preview.png" class="main-img" alt="Summer Shorts">
-          <img src="images/summer_short1-removebg-preview.png" class="hover-img" alt="Summer Shorts alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Summer Shorts</h3>
-        <p>&#8358;10,000</p>
-      </a>
-
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/summer_short1-removebg-preview.png" class="main-img" alt="Summer Shorts">
-          <img src="images/summer_short1-removebg-preview.png" class="hover-img" alt="Summer Shorts alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Summer Shorts</h3>
-        <p>&#8358;10,000</p>
-      </a>
-
-      <a href="product.html" class="product-card">
-        <div class="product-img">
-          <img src="images/summer_short1-removebg-preview.png" class="main-img" alt="Summer Shorts">
-          <img src="images/summer_short1-removebg-preview.png" class="hover-img" alt="Summer Shorts alternate view">
-          <span class="badge">New</span>
-        </div>
-        <h3>Summer Shorts</h3>
-        <p>&#8358;10,000</p>
-      </a>
-
-        
-    </div>
-  </section>
-
-  <footer class="footer">
-  <div class="footer-container">
-
-    <div class="footer-col">
-      <h3>EEYO</h3>
-      <p>Modern fashion pieces designed for everyday confidence and style.</p>
-    </div>
-
-    <div class="footer-col">
-      <h4>Shop</h4>
-      <a href="shop.html">All Products</a>
-      <a href="new-arrivals.html">New Arrivals</a>
-      <a href="#">Best Sellers</a>
-    </div>
-
-    <div class="footer-col">
-      <h4>Support</h4>
-      <a href="#">Contact</a>
-      <a href="#">Shipping</a>
-      <a href="#">Returns</a>
-    </div>
-
-  </div>
-
-  <p class="copyright">© 2026 CrownWear Collections</p>
-</footer>
-
-
+  <div id="site-footer"></div>
   <script src="script.js"></script>
 </body>
 </html>

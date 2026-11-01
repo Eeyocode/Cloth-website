@@ -1,51 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shop | CrownWears Collections</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | CrownWears</title>
+  <meta name="description" content="Browse every CrownWears piece: oversized tees, hoodies, polos, shorts and jackets.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <div class="menu-toggle" aria-label="Open navigation">&#9776;</div>
-      <img src="images/logo.png" alt="Eeyo Collections logo" class="logo-image" />
-
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html" class="active">Shop</a></li>
-        <li><a href="new-arrivals.html">New Arrivals</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-
-      <div class="nav-icons">
-        <a href="cart.html" class="cart-icon" aria-label="View cart">&#128722; <span id="cart-count">0</span></a>
-      </div>
-    </nav>
-  </header>
+  <div id="site-header"></div>
 
   <main>
-    <section class="shop-hero">
-      <div class="shop-hero-copy reveal" data-delay="80">
-        <p class="eyebrow">CrownWears Collections</p>
+    <section class="page-hero">
+      <div class="reveal">
+        <p class="eyebrow">CrownWears</p>
         <h1>Shop the full drop</h1>
         <p>Browse easy everyday pieces, clean streetwear staples, and comfortable fits made for repeat wear.</p>
       </div>
-
-      <div class="shop-hero-media reveal" data-delay="160" aria-hidden="true">
+      <div class="page-hero-media reveal" style="--reveal-delay:120ms" aria-hidden="true">
         <img src="images/hoodie7.jpeg" alt="">
         <img src="images/t-shirt3.jpeg" alt="">
       </div>
     </section>
 
     <section class="shop-toolbar" aria-label="Shop controls">
-      <div class="shop-search">
+      <div>
         <label for="shop-search">Search products</label>
         <input type="search" id="shop-search" placeholder="Search hoodies, polos, shorts..." autocomplete="off">
       </div>
-
       <div class="shop-sort">
         <label for="sort-products">Sort by</label>
         <select id="sort-products">
@@ -63,133 +48,19 @@
       <button type="button" data-filter="hoodie">Hoodies</button>
       <button type="button" data-filter="polo">Polos</button>
       <button type="button" data-filter="shorts">Shorts</button>
+      <button type="button" data-filter="jacket">Jackets</button>
     </section>
 
     <section class="shop-results">
       <div class="shop-meta">
-        <p id="result-count">Showing all products</p>
+        <p id="result-count" aria-live="polite">Showing all products</p>
         <p>Free Lagos delivery on orders above &#8358;50,000</p>
       </div>
-
-      <div class="product-grid" id="product-grid"></div>
+      <div class="grid" id="product-grid"></div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-col">
-        <h3>EEYO</h3>
-        <p>Modern fashion pieces designed for everyday confidence and style.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Shop</h4>
-        <a href="shop.html">All Products</a>
-        <a href="new-arrivals.html">New Arrivals</a>
-        <a href="#">Best Sellers</a>
-      </div>
-      <div class="footer-col">
-        <h4>Support</h4>
-        <a href="#">Contact</a>
-        <a href="#">Shipping</a>
-        <a href="#">Returns</a>
-      </div>
-    </div>
-    <p class="copyright">&copy; 2026 Eeyo Collections</p>
-  </footer>
-
+  <div id="site-footer"></div>
   <script src="script.js"></script>
-  <script>
-    const productGrid = document.getElementById("product-grid");
-    const filterButtons = document.querySelectorAll(".filters button");
-    const searchInput = document.getElementById("shop-search");
-    const sortSelect = document.getElementById("sort-products");
-    const resultCount = document.getElementById("result-count");
-
-    let activeFilter = "all";
-
-    const categoryLabels = {
-      tshirt: "T-Shirt",
-      hoodie: "Hoodie",
-      polo: "Polo",
-      shorts: "Shorts"
-    };
-
-    const formatPrice = (price) => `&#8358;${Number(price).toLocaleString()}`;
-
-    function getVisibleProducts() {
-      const query = searchInput.value.trim().toLowerCase();
-      const sortBy = sortSelect.value;
-
-      const visibleProducts = products.filter((product) => {
-        const matchesFilter = activeFilter === "all" || product.category === activeFilter;
-        const matchesSearch = !query ||
-          product.name.toLowerCase().includes(query) ||
-          product.description.toLowerCase().includes(query) ||
-          product.category.toLowerCase().includes(query);
-
-        return matchesFilter && matchesSearch;
-      });
-
-      return visibleProducts.sort((a, b) => {
-        if (sortBy === "price-low") return a.price - b.price;
-        if (sortBy === "price-high") return b.price - a.price;
-        if (sortBy === "name") return a.name.localeCompare(b.name);
-        return a.id - b.id;
-      });
-    }
-
-    function renderProducts() {
-      const visibleProducts = getVisibleProducts();
-      productGrid.innerHTML = "";
-
-      resultCount.textContent = visibleProducts.length === products.length
-        ? `Showing all ${products.length} products`
-        : `Showing ${visibleProducts.length} of ${products.length} products`;
-
-      if (!visibleProducts.length) {
-        productGrid.innerHTML = `
-          <div class="empty-state">
-            <h3>No products found</h3>
-            <p>Try a different search or category.</p>
-          </div>
-        `;
-        return;
-      }
-
-      visibleProducts.forEach((product, index) => {
-        const card = document.createElement("a");
-        card.href = `product.html?id=${product.id}`;
-        card.className = "product-card reveal";
-        card.dataset.delay = String(Math.min(index * 45, 360));
-        card.innerHTML = `
-          <img src="${product.image}" alt="${product.name}">
-          <div class="product-card-body">
-            <h3>${product.name}</h3>
-            <p>${product.description}</p>
-            <div class="product-row">
-              <span class="product-price">${formatPrice(product.price)}</span>
-              <span class="product-chip">${categoryLabels[product.category] || product.category}</span>
-            </div>
-          </div>
-        `;
-        productGrid.appendChild(card);
-        requestAnimationFrame(() => card.classList.add("in-view"));
-      });
-    }
-
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        filterButtons.forEach((item) => item.classList.remove("active"));
-        button.classList.add("active");
-        activeFilter = button.dataset.filter;
-        renderProducts();
-      });
-    });
-
-    searchInput.addEventListener("input", renderProducts);
-    sortSelect.addEventListener("change", renderProducts);
-
-    renderProducts();
-  </script>
 </body>
 </html>
